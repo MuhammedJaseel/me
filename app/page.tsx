@@ -95,7 +95,7 @@ const Portfolio = () => {
           <div className="flex flex-wrap items-center min-h-[calc(100vh-200px)]">
             <div className="max-w-3xl">
               <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6">
-                Designing <span className="text-blue-600">digital</span>{" "}
+                Develop <span className="text-blue-600">digital</span>{" "}
                 experiences.
               </h1>
               <p className="text-xl text-slate-500 max-w-xl leading-relaxed">

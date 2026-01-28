@@ -11,7 +11,7 @@ export default function Works({ work }: any) {
         whileHover={{ y: -5 }}
         className="md:col-span-3 h-[400px] bg-slate-900 rounded-3xl p-8 text-white flex flex-col justify-end relative overflow-hidden group"
         style={{
-          backgroundImage: `url(${work.bg})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${work.bg})`,
           backgroundPosition: "center",
         }}
       >
