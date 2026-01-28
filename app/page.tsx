@@ -168,7 +168,7 @@ const Portfolio = () => {
             © 2026 Muhammed Jaseel. Built with Love and Coffee.
           </p>
           <div className="flex gap-6">
-            <a href="https://github.com/MuhammedJaseel">
+            <a href="https://github.com/MuhammedJaseel" target="_blank">
               <Github className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
             </a>
             <a href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/">
