@@ -1,90 +1,185 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+"use client"; // This must be the first line
+
+import React from "react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Works from "./componensts/works";
+import DownloadButton from "./componensts/cv";
+
+const works = [
+  {
+    project: "Static web site",
+    title: "ANO Labs solutions",
+    bg: "https://anolabs.site/public/gallery/bg1.png",
+    desc: "A complate static web site devloper in html, css etc...",
+    stacks: ["HTML", "CSS", "JS", "Tailwind"],
+    link: "https://anolabs.site",
+    quote1: {
+      head: '"Simplicity, Engineered"',
+      body: "I specialize in crafting clean, high-performance code that mirrors the elegance of the user interface. By stripping away the unnecessary, I build digital products that are as robust as they are intuitive.",
+    },
+  },
+  {
+    project: "Next application",
+    title: "MANO chain website",
+    bg: "https://anolabs.site/public/gallery/bg4.png",
+    desc: "A dynamic next.js/nest.js application with some real time response",
+    stacks: ["NEXT.js", "JS", "Tailwind", "web-socket"],
+    link: "https://m.anolabs.site",
+  },
+  {
+    project: "ReactJs+Vite",
+    title: "Block explorer",
+    bg: "https://anolabs.site/public/gallery/bg2.png",
+    desc: "A dynamic next application with some real time response",
+    stacks: ["NEXT.js", "JS", "Tailwind", "web-socket"],
+    link: "https://scanm.anolabs.site",
+  },
+  {
+    project: "ReactJs+Vite",
+    title: "DApp web3/blockchain",
+    bg: "https://anolabs.site/public/gallery/bg3.png",
+    desc: "A dynamic next application with some real time response",
+    stacks: ["React.js", "TS", "Tailwind", "web3"],
+    link: "https://dapp.anolabs.site",
+  },
+  // {
+  //   project: "Featured Project",
+  //   title: "NeuralFlow Dashboard",
+  //   desc: "An AI-driven analytics platform visualizing real-time data streams.",
+  //   stacks: ["React", "Next.js", "TS", "Tailwind"],
+  //   link: "https://anolabs.site",
+  // },
+];
 
 const Portfolio = () => {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 1 },
   };
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="font-bold text-xl tracking-tighter">STUDIO.JS</span>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="font-bold text-xl tracking-tighter">
+            MUHAMMED JASEEL
+          </span>
           <div className="space-x-8 text-sm font-medium text-slate-600">
-            <a href="#work" className="hover:text-blue-600 transition-colors">Work</a>
-            <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
-            <a href="mailto:hello@example.com" className="bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-all">Contact</a>
+            <a href="#work" className="hover:text-blue-600 transition-colors">
+              Work
+            </a>
+            <a href="#about" className="hover:text-blue-600 transition-colors">
+              About
+            </a>
+            <a
+              href="mailto:jaseelmanamulli@gmail.com"
+              className="bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-all"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-20">
+      <main className="max-w-7xl mx-auto px-6 pt-32 pb-20">
         {/* Hero Section */}
-        <motion.section 
-          initial="initial" animate="animate" variants={fadeIn}
+        <motion.section
+          initial="initial"
+          animate="animate"
+          variants={fadeIn}
           className="mb-20"
         >
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
-            Designing <span className="text-blue-600">digital</span> experiences.
-          </h1>
-          <p className="text-xl text-slate-500 max-w-xl leading-relaxed">
-            I'm a Full-stack Developer specializing in building clean, functional, and user-centric interfaces. Currently based in the future.
-          </p>
+          <div className="flex flex-wrap items-center min-h-[calc(100vh-200px)]">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6">
+                Designing <span className="text-blue-600">digital</span>{" "}
+                experiences.
+              </h1>
+              <p className="text-xl text-slate-500 max-w-xl leading-relaxed">
+                I’m a Full-Stack Developer with 6+ years of experience building
+                web, mobile, and Web3 applications. I have hands-on experience
+                with React, Next.js, Node/NestJS, and blockchain integrations
+                using Ethers.js and Web3.js across EVM networks. I’ve worked on
+                dApps, wallet integrations, and scalable backend APIs, and I
+                enjoy owning features end-to-end from frontend UX to backend
+                logic and smart-contract interactions. I’m particularly
+                interested in roles where I can contribute to real-world Web3
+                products while continuing to grow in blockchain and
+                decentralized technologies. I’d be excited to discuss how my
+                skills and experience could add value to your team.
+              </p>
+            </div>
+            <img
+              src="https://anolabs.site/public/gallery/me2.webp"
+              alt="JASEEL"
+              className="w-100 h-100 rounded-full border-8 border-blue-300"
+            />
+          </div>
         </motion.section>
 
-        {/* Bento Grid Layout */}
-        <section id="work" className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          
-          {/* Main Project Card */}
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="md:col-span-3 h-[400px] bg-slate-900 rounded-3xl p-8 text-white flex flex-col justify-end relative overflow-hidden group"
-          >
-            <div className="absolute top-8 right-8 bg-white/10 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-              <ExternalLink size={20} />
-            </div>
-            <span className="text-blue-400 font-mono text-sm mb-2 uppercase">Featured Project</span>
-            <h3 className="text-3xl font-bold mb-4">NeuralFlow Dashboard</h3>
-            <p className="text-slate-400 max-w-md">An AI-driven analytics platform visualizing real-time data streams.</p>
-          </motion.div>
-
-          {/* Skill Box */}
-          <div className="md:col-span-1 bg-blue-600 rounded-3xl p-8 text-white flex flex-col justify-center items-center text-center">
-            <h4 className="font-bold text-lg mb-4">Tech Stack</h4>
-            <div className="flex flex-wrap justify-center gap-2">
-              {['React', 'Next.js', 'TS', 'Tailwind'].map(tag => (
-                <span key={tag} className="bg-white/20 px-3 py-1 rounded-lg text-xs font-semibold">{tag}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* About Box */}
-          <div className="md:col-span-2 bg-white border border-slate-200 rounded-3xl p-8">
-            <h4 className="font-bold text-xl mb-4 italic">"Simplicity is the ultimate sophistication."</h4>
-            <p className="text-slate-500">I believe in writing code that is as beautiful as the UI it powers.</p>
-          </div>
-
-          {/* Secondary Project */}
-          <div className="md:col-span-2 bg-slate-200 rounded-3xl p-8 flex items-end">
-            <div>
-              <h3 className="text-xl font-bold">VibeCheck App</h3>
-              <p className="text-slate-600">A social experiment in community building.</p>
-            </div>
-          </div>
+        {/* ABOUT us */}
+        <section id="work" className="flex flex-col gap-40">
+          {works.map((it, k) => (
+            <Works work={it} key={k} />
+          ))}
         </section>
+
+        <motion.section
+          initial="initial"
+          animate="animate"
+          variants={fadeIn}
+          className="pt-40 mb-20"
+          id="about"
+        >
+          <div className="flex flex-col items-center min-h-[calc(100vh-200px)]">
+            <span className="font-bold text-xl tracking-tighter">ABOUT ME</span>
+            <br />
+            <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6 text-center max-w-4xl">
+              Muhammed Jaseel.
+            </h1>
+            <span className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-center text-blue-600">
+              Full Stack Developer / (web3, Node.js).
+            </span>
+            <br /> <br />
+            <p className="text-xl text-slate-500 max-w-5xl leading-relaxed text-center">
+              I’m a Full-Stack Developer with 6+ years of experience building
+              web, mobile, and Web3 applications. I have hands-on experience
+              with React, Next.js, Node/NestJS, and blockchain integrations
+              using Ethers.js and Web3.js across EVM networks. I’ve worked on
+              dApps, wallet integrations, and scalable backend APIs, and I enjoy
+              owning features end-to-end from frontend UX to backend logic and
+              smart-contract interactions. I’m particularly interested in roles
+              where I can contribute to real-world Web3 products while
+              continuing to grow in blockchain and decentralized technologies.
+              I’d be excited to discuss how my skills and experience could add
+              value to your team.
+            </p>
+            <br /> <br />
+            <DownloadButton />
+          </div>
+        </motion.section>
 
         {/* Footer/Contact */}
         <footer className="mt-32 pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-slate-400 text-sm">© 2026 Your Name. Built with Love and Coffee.</p>
+          <p className="text-slate-400 text-sm">
+            © 2026 Muhammed Jaseel. Built with Love and Coffee.
+          </p>
           <div className="flex gap-6">
-            <Github className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
-            <Linkedin className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
-            <Mail className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+            <Github
+              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
+              href="https://github.com/MuhammedJaseel"
+            />
+            <Linkedin
+              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
+              href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/"
+            />
+            <Mail
+              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
+              href="mailto:jaseelmanamulli@gmail.com"
+            />
           </div>
         </footer>
       </main>
