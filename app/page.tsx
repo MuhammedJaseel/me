@@ -168,18 +168,15 @@ const Portfolio = () => {
             © 2026 Muhammed Jaseel. Built with Love and Coffee.
           </p>
           <div className="flex gap-6">
-            <Github
-              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
-              href="https://github.com/MuhammedJaseel"
-            />
-            <Linkedin
-              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
-              href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/"
-            />
-            <Mail
-              className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors"
-              href="mailto:jaseelmanamulli@gmail.com"
-            />
+            <a href="https://github.com/MuhammedJaseel">
+              <Github className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+            </a>
+            <a href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/">
+              <Linkedin className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+            </a>
+            <a href="mailto:jaseelmanamulli@gmail.com">
+              <Mail className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+            </a>
           </div>
         </footer>
       </main>
