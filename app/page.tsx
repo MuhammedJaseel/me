@@ -144,7 +144,7 @@ export default function Home() {
             {showC < 4 && <span className="font-bold">_</span>}
           </div>
           {showC > 4 && (
-            <div className="w-full lg:w-[50%] border border-[#666] rounded px-4 lg:px-6 py-3 lg:py-4 flex flex-col">
+            <div className="w-full lg:w-[50%] border border-[#666] rounded px-4 lg:px-6 py-3 lg:py-4 flex flex-col text-white">
               <div className="text-[#9CA3AF] flex justify-between">
                 Output
                 <div className="flex gap-2">
@@ -253,9 +253,12 @@ function Project() {
                           setshowC(11);
                           setTimeout(() => {
                             setshowC(12);
+                            setTimeout(() => {
+                              setshowC(13);
+                            }, 600);
                           }, 600);
                         }, 600);
-                      }, 600);
+                      }, 1200);
                     }, 600);
                   }, 600);
                 }, 600);
@@ -282,7 +285,7 @@ function Project() {
         <div>
           URL
           <span className="text-[#EBEF18]"> = "</span>
-          <a href="https://anolabs.site">
+          <a href="https://anolabs.site" target="_blank">
             <span className="text-[#F472B6]">https://anolabs.site</span>
           </a>
           <span className="text-[#10B981]">" </span>
@@ -304,7 +307,7 @@ function Project() {
         <div>
           URL
           <span className="text-[#EBEF18]"> = "</span>
-          <a href="https://m.anolabs.site">
+          <a href="https://m.anolabs.site" target="_blank">
             <span className="text-[#F472B6]">https://m.anolabs.site</span>
           </a>
           <span className="text-[#10B981]">" </span>
@@ -326,7 +329,7 @@ function Project() {
         <div>
           URL
           <span className="text-[#EBEF18]"> = "</span>
-          <a href="https://scanm.anolabs.site">
+          <a href="https://scanm.anolabs.site" target="_blank">
             <span className="text-[#F472B6]">https://scanm.anolabs.site</span>
           </a>
           <span className="text-[#10B981]">" </span>
@@ -344,11 +347,11 @@ function Project() {
           # vite+react nest.js, tailwint, websocket, rest-api, metamask
         </div>
       )}
-      {showC > 12 && (
+      {showC > 11 && (
         <div>
           URL
           <span className="text-[#EBEF18]"> = "</span>
-          <a href="https://dapp.anolabs.site">
+          <a href="https://dapp.anolabs.site" target="_blank">
             <span className="text-[#F472B6]">https://dapp.anolabs.site</span>
           </a>
           <span className="text-[#10B981]">" </span>
