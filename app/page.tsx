@@ -80,11 +80,11 @@ export default function Home() {
         className="absolute w-20 h-20 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.12)]"
         ref={refs[9]}
       />
-      <div className="m-[5%_12%] font-mono">
+      <div className="m-[5%_5%] lg:m-[5%_10%] font-mono h-[90vh] overflow-auto">
         <div className="font-bold text-xl text-[#EC4899]">Jaseel.Dev</div>
         <br /> <br />
-        <div className="flex gap-10">
-          <div className="w-[50%] text-sm/sm">
+        <div className="flex flex-col lg:flex-row gap-10">
+          <div className="w-full lg:w-[50%] text-xs/[1.6] lg:text-sm/[1.6]">
             <div className="text-[#FACC15] ">
               <span className="text-[#60A5FA]">const</span>{" "}
               <span className="text-[#F472B6]">about_me</span> = "I’m a
@@ -113,7 +113,7 @@ export default function Home() {
             <span className="text-[#F472B6]">return</span>{" "}
             <span className="text-white">;</span>
           </div>
-          <div className="w-[50%] border border-[#666] rounded px-6 py-4 flex flex-col">
+          <div className="w-full lg:w-[50%] border border-[#666] rounded px-6 py-4 flex flex-col">
             <div className="text-[#9CA3AF] flex justify-between">
               Output
               <div className="flex gap-2">
@@ -123,22 +123,25 @@ export default function Home() {
               </div>
             </div>
             <br />
-            <div>muhammedjaseel@Jaseels-MacBook-Air ~ %</div>
-            <br /> <br />
-            <div className="text-4xl font-bold text-center">
+            <div className="text-sm lg:text-base pb-4 lg:pb-16">
+              muhammedjaseel@Jaseels-MacBook-Air ~ %
+            </div>
+            <div className="text-2xl lg:text-4xl font-bold text-center">
               Muhammed Jaseel.💖
             </div>
-            <div className="font-bold text-center">👔 Full stack Developer</div>
+            <div className="text-sm lg:text-base font-bold text-center">
+              👔 Full stack Developer
+            </div>
             <br />
-            <div className="flex gap-2 justify-center text-sm">
+            <div className="flex gap-2 justify-center text-xs lg:text-sm">
               <a href="mailto:jaseelmanamulli@gmail.com">
-                <div className="border border-dashed p-2 w-40 text-center cursor-pointer">
+                <div className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer">
                   💌 Contact Me
                 </div>
               </a>
 
               <div
-                className="border border-dashed p-2 w-40 text-center cursor-pointer"
+                className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer"
                 onClick={() => setisProject(true)}
               >
                 🗂️ View Projects
@@ -148,7 +151,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 w-full p-[2%_12%] flex justify-between">
+      <div className="absolute bottom-0 w-full p-[2%_5%] lg:p-[2%_10%] flex gap-2 flex-col-reverse lg:flex-row items-center justify-between">
         <p className="text-slate-400 text-sm">
           © 2026 Muhammed Jaseel. Built with Love and Coffee.
         </p>
@@ -170,7 +173,7 @@ export default function Home() {
           onClick={() => setisProject(false)}
         >
           <div
-            className="w-[50%] border border-[#666] rounded px-6 py-4 flex flex-col bg-[#0F111A] h-[80vh]"
+            className="max-w-250 w-full m-2 border border-[#666] rounded px-6 py-4 flex flex-col bg-[#0F111A] h-[80vh] overflow-scroll text-xs lg:text-sm"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="text-[#9CA3AF] flex justify-between">
