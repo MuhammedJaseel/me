@@ -143,41 +143,43 @@ export default function Home() {
             )}
             {showC < 4 && <span className="font-bold">_</span>}
           </div>
-          <div className="w-full lg:w-[50%] border border-[#666] rounded px-4 lg:px-6 py-3 lg:py-4 flex flex-col">
-            <div className="text-[#9CA3AF] flex justify-between">
-              Output
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-              </div>
-            </div>
-            <div className="text-sm lg:text-base pb-4 lg:pb-16 pt-4 lg:pt-8">
-              muhammedjaseel@Jaseels-MacBook-Air ~ %
-            </div>
-            <div className="text-2xl lg:text-4xl font-bold text-center">
-              Muhammed Jaseel.💖
-            </div>
-            <div className="text-sm lg:text-base font-bold text-center">
-              👔 Full stack Developer
-            </div>
-            <br />
-            <div className="flex gap-2 justify-center text-xs lg:text-sm">
-              <a href="mailto:jaseelmanamulli@gmail.com">
-                <div className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer">
-                  💌 Contact Me
+          {showC > 4 && (
+            <div className="w-full lg:w-[50%] border border-[#666] rounded px-4 lg:px-6 py-3 lg:py-4 flex flex-col">
+              <div className="text-[#9CA3AF] flex justify-between">
+                Output
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
-              </a>
-
-              <div
-                className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer"
-                onClick={() => setisProject(true)}
-              >
-                🗂️ View Projects
               </div>
+              <div className="text-sm lg:text-base pb-4 lg:pb-16 pt-4 lg:pt-8">
+                muhammedjaseel@Jaseels-MacBook-Air ~ %
+              </div>
+              <div className="text-2xl lg:text-4xl font-bold text-center">
+                Muhammed Jaseel.💖
+              </div>
+              <div className="text-sm lg:text-base font-bold text-center">
+                👔 Full stack Developer
+              </div>
+              <br />
+              <div className="flex gap-2 justify-center text-xs lg:text-sm">
+                <a href="mailto:jaseelmanamulli@gmail.com">
+                  <div className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer">
+                    💌 Contact Me
+                  </div>
+                </a>
+
+                <div
+                  className="border border-dashed p-2 w-35 lg:w-40 text-center cursor-pointer"
+                  onClick={() => setisProject(true)}
+                >
+                  🗂️ View Projects
+                </div>
+              </div>
+              <div className="flex gap-2 justify-center text-sm"></div>
             </div>
-            <div className="flex gap-2 justify-center text-sm"></div>
-          </div>
+          )}
         </div>
       </div>
       <div className="absolute bottom-0 w-full p-[16%_5%_2%_5%] lg:p-[10%_10%_2%_10%] flex gap-2 flex-col-reverse lg:flex-row items-center justify-between bg-gradient-to-b from-[#00000000] via-[#00000066] to-black">
