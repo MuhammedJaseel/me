@@ -1,3 +1,4 @@
+"use client"; // This must be the first line
 import { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 
