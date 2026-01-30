@@ -1,187 +1,267 @@
-"use client"; // This must be the first line
-
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
-import Works from "./componensts/works";
-import DownloadButton from "./componensts/cv";
 
-const works = [
-  {
-    project: "Static web site",
-    title: "ANO Labs solutions",
-    bg: "https://anolabs.site/public/gallery/bg1.png",
-    desc: "A complate static web site devloper in html, css etc...",
-    stacks: ["HTML", "CSS", "JS", "Tailwind"],
-    link: "https://anolabs.site",
-    quote1: {
-      head: '"Simplicity, Engineered"',
-      body: "I specialize in crafting clean, high-performance code that mirrors the elegance of the user interface. By stripping away the unnecessary, I build digital products that are as robust as they are intuitive.",
-    },
-  },
-  {
-    project: "Next application",
-    title: "MANO chain website",
-    bg: "https://anolabs.site/public/gallery/bg4.png",
-    desc: "A dynamic next.js/nest.js application with some real time response",
-    stacks: ["NEXT.js", "JS", "Tailwind", "web-socket"],
-    link: "https://m.anolabs.site",
-  },
-  {
-    project: "ReactJs+Vite",
-    title: "Block explorer",
-    bg: "https://anolabs.site/public/gallery/bg2.png",
-    desc: "A dynamic next application with some real time response",
-    stacks: ["NEXT.js", "JS", "Tailwind", "web-socket"],
-    link: "https://scanm.anolabs.site",
-  },
-  {
-    project: "ReactJs+Vite",
-    title: "DApp web3/blockchain",
-    bg: "https://anolabs.site/public/gallery/bg3.png",
-    desc: "A dynamic next application with some real time response",
-    stacks: ["React.js", "TS", "Tailwind", "web3"],
-    link: "https://dapp.anolabs.site",
-  },
-  // {
-  //   project: "Featured Project",
-  //   title: "NeuralFlow Dashboard",
-  //   desc: "An AI-driven analytics platform visualizing real-time data streams.",
-  //   stacks: ["React", "Next.js", "TS", "Tailwind"],
-  //   link: "https://anolabs.site",
-  // },
-];
+export default function Home() {
+  const [isProject, setisProject] = useState(false);
 
-const Portfolio = () => {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 1 },
-  };
+  const refs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
+
+  useEffect(() => {
+    const moveRandomly = (el: any) => {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const duration = Math.random() * 2 + 6; // 6s – 14s
+      const scale = Math.random() * 1.4 + 0.5; // scale 0.5 → 1.9
+
+      el.style.transition = `transform ${duration}s cubic-bezier(0.4,0,0.2,1)`;
+      el.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    };
+
+    const intervals = refs.map((ref) => {
+      const el = ref.current;
+      if (!el) return null;
+      moveRandomly(el);
+      return setInterval(() => moveRandomly(el), 7000); // every 7s
+    });
+
+    return () => intervals.forEach((i) => i && clearInterval(i));
+  }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="font-bold text-xl tracking-tighter">
-            MUHAMMED JASEEL
-          </span>
-          <div className="space-x-8 text-sm font-medium text-slate-600">
-            <a href="#work" className="hover:text-blue-600 transition-colors">
-              Work
-            </a>
-            <a href="#about" className="hover:text-blue-600 transition-colors">
-              About
-            </a>
-            <a
-              href="mailto:jaseelmanamulli@gmail.com"
-              className="bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-all"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      <main className="max-w-7xl mx-auto px-6 pt-32 pb-20">
-        {/* Hero Section */}
-        <motion.section
-          initial="initial"
-          animate="animate"
-          variants={fadeIn}
-          className="mb-20"
-        >
-          <div className="flex flex-wrap items-center min-h-[calc(100vh-200px)]">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6">
-                Develop <span className="text-blue-600">digital</span>{" "}
-                experiences.
-              </h1>
-              <p className="text-xl text-slate-500 max-w-xl leading-relaxed">
-                I’m a Full-Stack Developer with 6+ years of experience building
-                web, mobile, and Web3 applications. I have hands-on experience
-                with React, Next.js, Node/NestJS, and blockchain integrations
-                using Ethers.js and Web3.js across EVM networks. I’ve worked on
-                dApps, wallet integrations, and scalable backend APIs, and I
-                enjoy owning features end-to-end from frontend UX to backend
-                logic and smart-contract interactions. I’m particularly
-                interested in roles where I can contribute to real-world Web3
-                products while continuing to grow in blockchain and
-                decentralized technologies. I’d be excited to discuss how my
-                skills and experience could add value to your team.
-              </p>
-            </div>
-            <img
-              src="https://anolabs.site/public/gallery/me2.webp"
-              alt="JASEEL"
-              className="w-100 h-100 rounded-full border-8 border-blue-300"
-            />
-          </div>
-        </motion.section>
-
-        {/* ABOUT us */}
-        <section id="work" className="flex flex-col gap-40">
-          {works.map((it, k) => (
-            <Works work={it} key={k} />
-          ))}
-        </section>
-
-        <motion.section
-          initial="initial"
-          animate="animate"
-          variants={fadeIn}
-          className="pt-40 mb-20"
-          id="about"
-        >
-          <div className="flex flex-col items-center min-h-[calc(100vh-200px)]">
-            <span className="font-bold text-xl tracking-tighter">ABOUT ME</span>
-            <br />
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-6 text-center max-w-4xl">
-              Muhammed Jaseel.
-            </h1>
-            <span className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-center text-blue-600">
-              Full Stack Developer / (web3, Node.js).
-            </span>
-            <br /> <br />
-            <p className="text-xl text-slate-500 max-w-5xl leading-relaxed text-center">
-              I’m a Full-Stack Developer with 6+ years of experience building
-              web, mobile, and Web3 applications. I have hands-on experience
-              with React, Next.js, Node/NestJS, and blockchain integrations
-              using Ethers.js and Web3.js across EVM networks. I’ve worked on
-              dApps, wallet integrations, and scalable backend APIs, and I enjoy
-              owning features end-to-end from frontend UX to backend logic and
+    <div className="fixed right-0 top-0 left-0 bottom-0 bg-[#0F111A]">
+      <div
+        className="absolute w-10 h-10 rounded-full shadow-[inset_0_0_12px_rgba(125,183,102,0.05)]"
+        ref={refs[0]}
+      />
+      <div
+        className="absolute w-16 h-16 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.1)]"
+        ref={refs[1]}
+      />
+      <div
+        className="absolute w-20 h-20 rounded-full shadow-[inset_0_0_18px_rgba(125,183,102,0.04)]"
+        ref={refs[2]}
+      />
+      <div
+        className="absolute w-16 h-16 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.2)]"
+        ref={refs[3]}
+      />
+      <div
+        className="absolute w-20 h-20 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.2)]"
+        ref={refs[4]}
+      />
+      <div
+        className="absolute w-10 h-10 rounded-full shadow-[inset_0_0_12px_rgba(125,183,102,0.1)]"
+        ref={refs[5]}
+      />
+      <div
+        className="absolute w-16 h-16 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.15)]"
+        ref={refs[6]}
+      />
+      <div
+        className="absolute w-20 h-20 rounded-full shadow-[inset_0_0_18px_rgba(125,183,102,0.12)]"
+        ref={refs[7]}
+      />
+      <div
+        className="absolute w-16 h-16 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.12)]"
+        ref={refs[8]}
+      />
+      <div
+        className="absolute w-20 h-20 rounded-full shadow-[inset_0_0_18px_rgba(99,102,241,0.12)]"
+        ref={refs[9]}
+      />
+      <div className="m-[5%_12%] font-mono">
+        <div className="font-bold text-xl text-[#EC4899]">Jaseel.Dev</div>
+        <br /> <br />
+        <div className="flex gap-10">
+          <div className="w-[50%] text-sm/sm">
+            <div className="text-[#FACC15] ">
+              <span className="text-[#60A5FA]">const</span>{" "}
+              <span className="text-[#F472B6]">about_me</span> = "I’m a
+              Full-Stack Developer with 6+ years of experience building web,
+              mobile, and Web3 applications. I have hands-on experience with
+              React, Next.js, Node/NestJS, and blockchain integrations using
+              Ethers.js and Web3.js across EVM networks. I’ve worked on dApps,
+              wallet integrations, and scalable backend APIs, and I enjoy owning
+              features end-to-end from frontend UX to backend logic and
               smart-contract interactions. I’m particularly interested in roles
               where I can contribute to real-world Web3 products while
-              continuing to grow in blockchain and decentralized technologies.
-              I’d be excited to discuss how my skills and experience could add
-              value to your team.
-            </p>
+              continuing to grow in blockchain and decentralized technologies."
+              <span className="text-white">;</span>
+            </div>
+            <br />
+            <div className="text-[#10B981]">{`{/* 🛠️ TOOLS I USE */}`}</div>
+            <br />
+            <div className="text-[#10B981]">
+              {`{/* ReactJs, NextJs, NodeJS, ExpressJs, NestJs */}`}
+            </div>
+            <br />
+            <div className="text-[#10B981]">
+              {`{/* Git, GitHub, CI/CD, AWS */}`}
+            </div>
+            <br />
+            <span className="text-[#F472B6]">return</span>{" "}
+            <span className="text-white">;</span>
+          </div>
+          <div className="w-[50%] border border-[#666] rounded px-6 py-4 flex flex-col">
+            <div className="text-[#9CA3AF] flex justify-between">
+              Output
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+              </div>
+            </div>
+            <br />
+            <div>muhammedjaseel@Jaseels-MacBook-Air ~ %</div>
             <br /> <br />
-            <DownloadButton />
-          </div>
-        </motion.section>
+            <div className="text-4xl font-bold text-center">
+              Muhammed Jaseel.💖
+            </div>
+            <div className="font-bold text-center">👔 Full stack Developer</div>
+            <br />
+            <div className="flex gap-2 justify-center text-sm">
+              <a href="mailto:jaseelmanamulli@gmail.com">
+                <div className="border border-dashed p-2 w-40 text-center cursor-pointer">
+                  💌 Contact Me
+                </div>
+              </a>
 
-        {/* Footer/Contact */}
-        <footer className="mt-32 pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-slate-400 text-sm">
-            © 2026 Muhammed Jaseel. Built with Love and Coffee.
-          </p>
-          <div className="flex gap-6">
-            <a href="https://github.com/MuhammedJaseel" target="_blank">
-              <Github className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
-            </a>
-            <a href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/">
-              <Linkedin className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
-            </a>
-            <a href="mailto:jaseelmanamulli@gmail.com">
-              <Mail className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
-            </a>
+              <div
+                className="border border-dashed p-2 w-40 text-center cursor-pointer"
+                onClick={() => setisProject(true)}
+              >
+                🗂️ View Projects
+              </div>
+            </div>
+            <div className="flex gap-2 justify-center text-sm"></div>
           </div>
-        </footer>
-      </main>
+        </div>
+      </div>
+      <div className="absolute bottom-0 w-full p-[2%_12%] flex justify-between">
+        <p className="text-slate-400 text-sm">
+          © 2026 Muhammed Jaseel. Built with Love and Coffee.
+        </p>
+        <div className="flex gap-6">
+          <a href="https://github.com/MuhammedJaseel" target="_blank">
+            <Github className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+          </a>
+          <a href="https://www.linkedin.com/in/jaseel-muhammed-7609251b3/">
+            <Linkedin className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+          </a>
+          <a href="mailto:jaseelmanamulli@gmail.com">
+            <Mail className="text-slate-400 hover:text-slate-900 cursor-pointer transition-colors" />
+          </a>
+        </div>
+      </div>
+      {isProject && (
+        <div
+          className="fixed left-0 right-0 bottom-0 top-0 bg-[#ffffff11] flex justify-center items-center"
+          onClick={() => setisProject(false)}
+        >
+          <div
+            className="w-[50%] border border-[#666] rounded px-6 py-4 flex flex-col bg-[#0F111A] h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-[#9CA3AF] flex justify-between">
+              Output
+              <div className="flex gap-2">
+                <div
+                  className="w-3 h-3 rounded-full bg-red-500 cursor-pointer"
+                  onClick={() => setisProject(false)}
+                />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+              </div>
+            </div>
+            <br />
+            <div>root@srv1281222:/opt/ano# vi projects.env</div>
+
+            <br />
+            <div className="text-[#32F4F1] font-bold">
+              # A static web site developer in core html css
+            </div>
+            <div className="text-[#32F4F1]"># html, Js, tailwint</div>
+            <div>
+              URL
+              <span className="text-[#EBEF18]"> = "</span>
+              <a href="https://anolabs.site">
+                <span className="text-[#F472B6]">https://anolabs.site</span>
+              </a>
+              <span className="text-[#10B981]">" </span>
+            </div>
+
+            <br />
+            <div className="text-[#32F4F1] font-bold">
+              # A blockchain website in NextJs, with dome live response
+            </div>
+            <div className="text-[#32F4F1]">
+              # next.js express.js, tailwint, websocket, rest-api
+            </div>
+            <div>
+              URL
+              <span className="text-[#EBEF18]"> = "</span>
+              <a href="https://m.anolabs.site">
+                <span className="text-[#F472B6]">https://m.anolabs.site</span>
+              </a>
+              <span className="text-[#10B981]">" </span>
+            </div>
+
+            <br />
+            <div className="text-[#32F4F1] font-bold">
+              # Block explorer URL for a EVM chain
+            </div>
+            <div className="text-[#32F4F1]">
+              # vite+react nest.js, tailwint, websocket, rest-api
+            </div>
+            <div>
+              URL
+              <span className="text-[#EBEF18]"> = "</span>
+              <a href="https://scanm.anolabs.site">
+                <span className="text-[#F472B6]">
+                  https://scanm.anolabs.site
+                </span>
+              </a>
+              <span className="text-[#10B981]">" </span>
+            </div>
+
+            <br />
+            <div className="text-[#32F4F1] font-bold">
+              # DApp developer in vite+react
+            </div>
+            <div className="text-[#32F4F1]">
+              # vite+react nest.js, tailwint, websocket, rest-api, metamask
+            </div>
+            <div>
+              URL
+              <span className="text-[#EBEF18]"> = "</span>
+              <a href="https://dapp.anolabs.site">
+                <span className="text-[#F472B6]">
+                  https://dapp.anolabs.site
+                </span>
+              </a>
+              <span className="text-[#10B981]">" </span>
+            </div>
+
+            <div>
+              <div className="text-[#F472B6]">
+                ~<br /> ~<br />~<br />~<br />~<br />~<br />~<br />~<br />~<br />
+              </div>
+              "projects.env" 15L, 390B
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
-
-export default Portfolio;
+}

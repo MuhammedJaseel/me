@@ -7,7 +7,7 @@ import { Download } from 'lucide-react';
 const DownloadButton = () => {
   const handleDownload = () => {
     // Replace with your actual CV file path
-    const cvUrl = '/Muhammed-Jaseel-FullStack-Developer-CV.pdf';
+    const cvUrl = '/cv/Muhammed-Jaseel-FullStack-Developer-CV.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Muhammed-Jaseel-FullStack-Developer-CV.pdf';
