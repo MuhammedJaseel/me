@@ -182,7 +182,7 @@ export default function Home() {
           )}
         </div>
       </div>
-      <div className="absolute bottom-0 w-full p-[16%_5%_2%_5%] lg:p-[10%_10%_2%_10%] flex gap-2 flex-col-reverse lg:flex-row items-center justify-between bg-gradient-to-b from-[#00000000] via-[#00000066] to-black">
+      <div className="absolute bottom-0 w-full p-[2%_5%_2%_5%] lg:p-[2%_10%_2%_10%] flex gap-2 flex-col-reverse lg:flex-row items-center justify-between bg-gradient-to-b from-[#00000000] via-[#00000066] to-black">
         <p className="text-slate-400 text-xs lg:text-sm">
           © 2026 Muhammed Jaseel. Built with Love and Coffee.
         </p>
