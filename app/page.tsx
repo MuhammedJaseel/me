@@ -1,6 +1,7 @@
 "use client"; // This must be the first line
 import { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import AccessLogger from "./componensts/accessLogger";
 
 const about =
   "I’m a Full-Stack Developer with 6+ years of experience building web, mobile, and Web3 applications. I have hands-on experience with React, Next.js, Node/NestJS, and blockchain integrations using Ethers.js and Web3.js across EVM networks. I’ve worked on dApps, wallet integrations, and scalable backend APIs, and I enjoy owning features end-to-end from frontend UX to backend logic and smart-contract interactions. I’m particularly interested in roles where I can contribute to real-world Web3 products while continuing to grow in blockchain and decentralized technologies.";
@@ -224,6 +225,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      <AccessLogger />
     </div>
   );
 }
