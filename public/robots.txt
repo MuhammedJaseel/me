@@ -1,0 +1,9 @@
+# To block ALL crawlers from the entire site
+User-agent: *
+Disallow: /
+
+# To block specific AI crawlers (GPT, Claude, etc.)
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
