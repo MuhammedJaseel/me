@@ -110,8 +110,8 @@ export default function Home() {
         ref={refs[9]}
       />
       <div className="p-[5%_5%] lg:p-[5%_10%] font-mono pb-30 h-full overflow-auto">
-        <div className="font-bold text-xl text-[#EC4899] pb-5 lg:pb-10 flex gap-1">
-          <img className="w-4 h-4" src="/favicon.png" alt="Ja" />
+        <div className="font-bold text-xl text-[#EC4899] pb-5 lg:pb-10 flex items-center gap-2">
+          <img className="w-5 h-5" src="/favicon.png" alt="Ja" />
           Jaseel.Dev
         </div>
         <div className="flex flex-col lg:flex-row gap-10">
